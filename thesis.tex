@@ -1,14 +1,24 @@
 \documentclass[american,titlepage]{ntnuthesis}
 
-\title{Multimodal Classification of Cognitive Load Using Ocular Measures}
+\title{Classification of Cognitive Load Using Ocular Measures}
 % \shorttitle{An NTNU Thesis Document Class}
-\author{Jostein Nordal Lysberg}
+\author{Jostein Lysberg}
 % \shortauthor{CoPCSE$@$NTNU}
 \date{\today}
 
 \addbibresource{thesis.bib}
 
 \input{glossary.tex} % add glossary and acronym lists before document
+
+% Extra packages
+\usepackage{import}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{placeins}
+
+% Custom commands
+\newcommand{\source}[1]{\vspace{-3pt} \caption*{ \hfill Source: {#1}} }
 
 \begin{document}
 
@@ -26,8 +36,10 @@
 % \input{chapters/template/usage.tex}
 % \input{chapters/template/structure.tex}
 
-\input{chapters/introduction/.}
-\input{chapters/background/.}
+\import{chapters/introduction}{.}
+% \input{chapters/introduction/.}
+\import{chapters/background}{.}
+% \input{chapters/background/.}
 \input{chapters/implementation/.}
 \input{chapters/results/.}
 \input{chapters/discussion/.}
