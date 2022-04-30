@@ -8,7 +8,7 @@
 
 \addbibresource{thesis.bib}
 
-\input{glossary.tex} % add glossary and acronym lists before document
+\makeglossaries
 
 % Extra packages
 \usepackage{import}
@@ -16,6 +16,8 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{placeins}
+
+% \usepackage[automake, acronym]{glossaries-extra}
 
 % Custom commands
 \newcommand{\source}[1]{\vspace{-3pt} \caption*{ \hfill Source: {#1}} }
@@ -30,8 +32,10 @@
 % \listoftables
 % \lstlistoflistings
 
-\printglossary[type=\acronymtype] % Print acronyms
-\printglossary                    % Print glossary
+\input{glossary.tex} % add glossary and acronym lists before document
+
+% \printglossary[type=\acronymtype] % Print acronyms
+% \printglossary                    % Print glossary
 
 % \input{chapters/template/usage.tex}
 % \input{chapters/template/structure.tex}
