@@ -8,7 +8,9 @@
 
 \addbibresource{thesis.bib}
 
-\makeglossaries
+% \makeglossaries
+\makenoidxglossaries
+\input{glossary.tex} % add glossary and acronym lists before document
 
 % Extra packages
 \usepackage{import}
@@ -32,22 +34,25 @@
 % \listoftables
 % \lstlistoflistings
 
-\input{glossary.tex} % add glossary and acronym lists before document
+% \input{glossary.tex} % add glossary and acronym lists before document
 
 % \printglossary[type=\acronymtype] % Print acronyms
 % \printglossary                    % Print glossary
+\printnoidxglossaries
 
 % \input{chapters/template/usage.tex}
 % \input{chapters/template/structure.tex}
 
 \import{chapters/introduction}{.}
-% \input{chapters/introduction/.}
 \import{chapters/background}{.}
-% \input{chapters/background/.}
-\input{chapters/implementation/.}
-\input{chapters/results/.}
-\input{chapters/discussion/.}
-\input{chapters/conclusion/.}
+\import{chapters/implementation}{.}
+\import{chapters/results}{.}
+\import{chapters/discussion}{.}
+\import{chapters/conclusion}{.}
+% \input{chapters/implementation/.}
+% \input{chapters/results/.}
+% \input{chapters/discussion/.}
+% \input{chapters/conclusion/.}
 
 \chapter*{\bibname}
 \printbibliography[heading=none]
