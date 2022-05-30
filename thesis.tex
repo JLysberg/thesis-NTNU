@@ -18,6 +18,28 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{placeins}
+\usepackage{diagbox}
+\usepackage{hhline}
+\usepackage{multirow}
+\usepackage{bm}
+\usepackage{amsmath}
+
+% Packages required for listings, including special unicode characters
+\usepackage{listings}
+\usepackage{pmboxdraw}
+\lstdefinestyle{listingstyle}{
+  basicstyle=\ttfamily\footnotesize,
+  captionpos=b
+}
+\lstset{literate=%
+{└}{{\textSFii}}1
+{├}{{\textSFviii}}1
+{─}{{\textSFx}}1
+{│}{{\textSFxi}}1
+}
+\lstset{extendedchars=\true}
+\lstset{inputencoding=ansinew}
+\lstset{style=listingstyle}
 
 % \usepackage[automake, acronym]{glossaries-extra}
 
@@ -57,7 +79,8 @@
 \chapter*{\bibname}
 \printbibliography[heading=none]
 
-% \appendix
-% \input{appendices/appendix_ex.tex}
+\appendix
+% % \input{appendices/appendix_ex.tex}
+\input{appendices/architecture_details.tex}
 
 \end{document}

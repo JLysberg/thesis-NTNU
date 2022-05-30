@@ -1,15 +1,28 @@
 \chapter{Discussion}
 
-\section{Dataset Weaknesses}
-
-\textit{Duration of offset/idle periods. Both should have been longer in retrospect.}
-
-\section{Model Classification Accuracies}
-
-\textit{Performance of ResNet in this approach compared to others may be due to limitations in dataset, as deeper models require much more data in order to generalize well [Fawaz].}
-
+\import{.}{dataset}
+\import{.}{nback}
+\import{.}{ocular_correlations}
+\import{.}{classification}
 
 
 \section{Further work}
+
 \subsection{Unexplored Model Architectures}
+
 \textit{Multi-channel convolution followed by regular convolution. Would allow for individual channel features to be created before merging features in a normal convolutional manner.}
+
+% Larger dataset and exploration of inter-task and inter-subject generalization. This is the holy grail of cognitive load classification. As sharma and .. concluded with in their papers, a classification model trained only on one subject and one task is utterly useless by itself. 
+
+
+
+\textit{Duration of offset/idle periods. Both should have been longer in retrospect.}
+
+
+
+
+\section{Model Classification Accuracies}
+
+
+
+

@@ -6,7 +6,7 @@ This section will outline the most prominent impacts of cognition on the ocular 
 
 % Some studies have even studied the possibility of inferring subject intention from their eye movements. \cite{ballard1992}, for instance, wanted to investigate whether gaze patterns were an indicator that preceded actions. To do this, he conducted an experiment where subjects were to move a set of colored blocks to match the pattern of a given model, while a mobile eye tracker was set up to record their eye movements. He found that there was indeed a strong link between a subject's eye movements and their actions. Gaze followed a clear pattern of checking out a block before picking it up and the model before placing it down. Similarly, \cite{land1999} measured a subject's eye movements as they performed daily tasks, such as brewing tea or making a sandwich, again finding that the subject's eyes always revealed their intentions before acting.
 
-\subsection{Pupillometry}
+\subsection{Pupillometry} \label{sec:bt/cognitive_impacts/pupillometry}
 
 Voluntary effort drives visual perception. Except for reflexive responses, eye movements require conscious activation of the extraocular muscles surrounding the eyes. These are necessary movements for placing visual information on the retina and are well-understood. Even after attention is directed at an object, other eye movements constantly operate to provide our brain with an optimal image of reality. One such operation includes lens stretching to provide focused light from near and far objects. Another is responsible for light admission to the retina by constricting and dilating the pupil. From a neurological examinator's standpoint, the latter is of particular interest. Pupillometry is the study of pupil size and reactivity and will be further elaborated on in the current subsection.
 
@@ -18,7 +18,7 @@ Our brain regulates pupil diameter as a response to three distinct types of stim
 
 Average pupil size ranges from 1.5mm in bright lighting to 9mm in total darkness \cite{eckstein2017}. The physiological explanation for this effect is clear: A large pupil allows for more light to fall on the retina, thus increasing the amount of information sent to the brain at any time. Photoreceptors on the retina quickly become saturated upon bright light exposure, rendering them less sensitive. Subsequent exposure to faint objects in dim light requires dark adaptation, taking tens of minutes. During this time, vision is substantially impaired. To avoid this issue, the pupil may rapidly dilate upon changing environments from bright to dim, effectively acting as a buffer for light admittance. This behavior is subconsciously controlled by the \acrshort{plr}.
 
-Diverting gaze between near and far objects causes an additional few millimeters of changes in pupil size. This response is explained by optical distortion of light passing through the lens, caused by spherical aberration. This distortion occurs because the light entering an aperture is increasingly refracted toward the edges of a convex lens, causing rays not to converge on the same focal point. The effect is illustrated in figure \ref{fig:bt_spherical_aberration}. Like with a conventional camera, less spherical aberration means that deeper planes of the visual field may be in focus simultaneously. Reducing the amount of light that has to enter through the lens edges by reducing the aperture size, therefore, deepens the field of focus.
+Diverting gaze between near and far objects causes an additional few millimeters of changes in pupil size. This response is explained by optical distortion of light passing through the lens, caused by spherical aberration. This distortion occurs because the light entering an aperture is increasingly refracted toward the edges of a convex lens, causing rays not to converge on the same focal point. The effect is illustrated in figure \ref{fig:bt/spherical_aberration}. Like with a conventional camera, less spherical aberration means that deeper planes of the visual field may be in focus simultaneously. Reducing the amount of light that has to enter through the lens edges by reducing the aperture size, therefore, deepens the field of focus.
 
 Furthermore, since focusing on closer objects require a rounder lens causing even more distortion, optimal vision at close range benefits from a constricted pupil. As with the \acrshort{plr}, this behavior is subconsciously controlled by the \acrshort{pnr}.
 
@@ -27,7 +27,7 @@ Furthermore, since focusing on closer objects require a rounder lens causing eve
     \includegraphics[width=0.6\textwidth]{figures/bt_spherical_aberration.png}
     \caption{Simplified illustration of spherical aberration in the eye. Light passing through the outer edges of the lens are refracted to a larger degree than those passing through the center, causing image distortion. }
     \source{\cite{huang2011}}
-    \label{fig:bt_spherical_aberration}
+    \label{fig:bt/spherical_aberration}
 \end{figure}
 
 Whereas both the \acrshort{plr} and the \acrshort{pnr} can cause pupil size to vary by half or double its original size, \acrshort{ppr} only accounts for changes of less than 0.5mm \cite{beatty1982}. Naturally, this leads to significant sources of bias if the cognitively evoked responses are what we are interested in measuring. Researchers may mitigate the effects of \acrshort{pnr} by keeping the stimulus at a constant distance from the subject, which is usually the case for most studies that present stimuli on a computer monitor. To account for the \acrshort{plr}, studies suggest moderately and constantly lit environments \cite{steinauer2004}. By closely controlling these two factors and recording a baseline pupil diameter for each subject, researchers may observe the \acrshort{ppr} by measuring deviations from this baseline. 
@@ -48,14 +48,14 @@ In other words, any cognitive process that requires heightened attention or deli
 
 Two distinct central- and autonomous nervous system pathways govern pupil dilation and constriction. One is responsible for the fight-or-flight response and is referred to as the \acrfull{sns}. The other is called the \acrfull{pns} and controls what is known as the rest-and-digest response \cite{blessing2008}. As their responses might suggest, they operate under entirely different circumstances. When chemicals in the brainstem stimulate the \acrshort{sns}, heart rate, sweat- and glucose production is accelerated, and pupils dilate. Conversely, stimulation of the \acrshort{pns} will constrict the pupil, slow the heartbeat, and trigger digestion, secretion, and voiding. This connection hints at why pupils are small at rest and larger when aroused or agitated.
 
-Furthermore, there is a cluster of neurons in our brain called the \acrfull{lc}. These neurons have shown direct inhibitory projections with the \acrshort{pns} and excitatory projections with the \acrshort{sns} \cite{eckstein2017}. In other words, increased activity in the \acrshort{lc} triggers bodily functions associated with fight-or-flight while halting those associated with rest-and-digest. These responses further lead to reduced activation of the pupil's constricting fibers and increased activation of its dilating fibers, thus increasing its size. A study by \textcite{rajkowski1993} demonstrated this effect, where they recorded neuronal \acrshort{lc} activity in monkeys during a target detection task. During this task, monkeys were made to exert different levels of effort over time. As is evident from figure \ref{fig:bt_lc_corr}, a striking temporal coupling between \acrshort{lc} activity and pupil size was shown. 
+Furthermore, there is a cluster of neurons in our brain called the \acrfull{lc}. These neurons have shown direct inhibitory projections with the \acrshort{pns} and excitatory projections with the \acrshort{sns} \cite{eckstein2017}. In other words, increased activity in the \acrshort{lc} triggers bodily functions associated with fight-or-flight while halting those associated with rest-and-digest. These responses further lead to reduced activation of the pupil's constricting fibers and increased activation of its dilating fibers, thus increasing its size. A study by \textcite{rajkowski1993} demonstrated this effect, where they recorded neuronal \acrshort{lc} activity in monkeys during a target detection task. During this task, monkeys were made to exert different levels of effort over time. As is evident from figure \ref{fig:bt/lc_corr}, a striking temporal coupling between \acrshort{lc} activity and pupil size was shown. 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/bt_LC_correlation.png}
     \caption{\acrlong{lc} firing rate (bottom) and pupil diameter in monkeys (top). Demonstrates clear connection between \acrshort{lc} and \acrshort{pns} inhibition, which we know regulates pupil diameter.}
     \source{\cite{rajkowski1993}}
-    \label{fig:bt_lc_corr}
+    \label{fig:bt/lc_corr}
 \end{figure}
 
 To explain why the \acrshort{ppr} has any coupling with cognition, besides being associated with the fight-or-flight response, we need to understand the \acrlong{lc}. Studies show that the \acrshort{lc} plays a critical role in physiological arousal and cognitive functioning. In fact, the \acrshort{lc} is the only source of \acrfull{ne} in the cerebral cortex \cite{sara2009}. \acrshort{ne}, synthesized from \acrfull{da}, is an essential neuromodulator of brain activity \cite{aminoff2014}. Although it produces many effects in the body, the most notable is boosting the signal-to-noise ratio of incoming sensory information. 
@@ -93,7 +93,7 @@ In addition to this task-evoked response, another experiment by \textcite{hopsta
 
 % Pupil dilation in response to arousal. Dilated pupils are subconciously perceived as more attractive.
 
-\subsection{\acrfull{ebr}}
+\subsection{\acrfull{ebr}} \label{sec:bt/cognitive_impacts/ebr}
 
 Another well-understood ocular event is blinking. It serves eye health by distributing an even layer of moisture across the eyeball and protects against foreign objects by reflexive closure. Contrary to the pupillary response, blinking can be controlled by conscious effort. Therefore, when considering the cognitive implications of blink rate, we need to define \textit{spontaneous eyeblinks}. What characterizes these eyeblinks is that cognitive functions subconsciously induce them without interference from volition. They differ from reflexive eyeblinks because they occur at predictable rates and without the triggers of foreign objects.
 
@@ -102,14 +102,14 @@ Another well-understood ocular event is blinking. It serves eye health by distri
 \acrfull{ebr}, the rate at which spontaneous eyeblinks occur, is a reliable measure of \acrfull{da} activity in the central nervous system. Although the precise neural circuitry that controls blink rate is primarily unknown \cite{eckstein2017}, empirical studies have repeatedly demonstrated this relationship.
 
 
-\acrshort{da} activity in both human and non-human primates can reliably be observed by either pharmacological manipulations or from clinical studies. For instance, administration of the well-known \acrshort{da} agonists \textit{apomorphine} and \textit{amphetamine} have shown statistically significant increases in \acrshort{ebr} in both humans \cite{blin1990, strakowski1998, strakowski1996}, and monkeys \cite{redmond2011, kotani2016}. Apomorphine effect on \acrshort{ebr} is shown in figure \ref{fig:bt_da_corr}. Similarly, many conditions are known to affect the dopaminergic system. One such condition is Parkinson's disease, a disorder caused by a loss of dopaminergic cells in some parts of the brain. Patients suffering from Parkinson's show a significantly reduced \acrshort{ebr} compared to healthy individuals \cite{bologna2012}. Other conditions, such as schizophrenia and Tourette's syndrome, are linked with elevated \acrshort{da} activity and show increased \acrshort{ebr}. 
+\acrshort{da} activity in both human and non-human primates can reliably be observed by either pharmacological manipulations or from clinical studies. For instance, administration of the well-known \acrshort{da} agonists \textit{apomorphine} and \textit{amphetamine} have shown statistically significant increases in \acrshort{ebr} in both humans \cite{blin1990, strakowski1998, strakowski1996}, and monkeys \cite{redmond2011, kotani2016}. Apomorphine effect on \acrshort{ebr} is shown in figure \ref{fig:bt/da_corr}. Similarly, many conditions are known to affect the dopaminergic system. One such condition is Parkinson's disease, a disorder caused by a loss of dopaminergic cells in some parts of the brain. Patients suffering from Parkinson's show a significantly reduced \acrshort{ebr} compared to healthy individuals \cite{bologna2012}. Other conditions, such as schizophrenia and Tourette's syndrome, are linked with elevated \acrshort{da} activity and show increased \acrshort{ebr}. 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/bt_DA_correlation.png}
     \caption{\acrlong{ebr} for three dosages of DA agonist apomorphine against baseline (no pharmacological manipulation). Note that \acrshort{ebr} values on y-axis show deviations from baseline, hence why baseline graph is constantly at 0.}
     \source{\cite{kotani2016}}
-    \label{fig:bt_da_corr}
+    \label{fig:bt/da_corr}
 \end{figure}
 
 Just like \acrshort{ne}, \acrshort{da} is an important neuromodulator for brain activity. Especially for learning and \textit{cognitive control}, \acrshort{da} activity has shown to be an important aggregator. Cognitive control is a term that broadly describes our ability to control impulses, maintain goals and focus on specific tasks without diverting attention. Research in this area has shown a near positive-linear relationship between baseline \acrshort{da} levels in the brainstem and cognitive control in goal-oriented tasks \cite{puig2014, westbrook2016}. In addition to baseline levels, phasic \acrshort{da} activity has shown positive correlations with changing task environments.\textcite{bochove2012}, for instance, showed that an increased \acrshort{ebr} in one task trial could reliably predict the level of cognitive control and performance in the subsequent trial.
@@ -120,27 +120,27 @@ Just like \acrshort{ne}, \acrshort{da} is an important neuromodulator for brain 
 
 A classic experiment to ascertain cognitive control is called the Stroop test. It is set up such that the subject is presented with a series of words representing colors (e.g., red, green, blue). Each word stimulus is said to be \textit{congruent} if the font color matches the word. If colors do not match, the stimulus is \textit{incongruent}. Incongruent stimuli are notably challenging since the subject is presented with two conflicting visual inputs, and an intuitive answer does not come to mind without some thought. Numerous studies, including the original by \textcite{stroop1935}, show that the incongruent condition causes an increased response time of about 75\% compared to the congruent condition. More recent studies suggest that conflicts in the word read and the color seen requires higher levels of cognitive control to respond correctly \cite{egner2005, bugg2012}. 
 
-An experiment by \textcite{oh2012} employed the Stroop test to examine task-evoked \acrshort{ebr}, similar to \textcite{bochove2012}. In this study, subjects were presented with 60 randomly distributed congruent and incongruent stimuli. Each stimulus stayed on-screen for two seconds or until the subject responded with a color. They found that, of the 27 subjects in the experiment, each subject could be divided into distinct subgroups based on their eyeblink behavior when responding. Seventeen showed a consistent tendency to blink directly before responding (subgroup I), and seven directly after (subgroup II). Four subjects showed both behaviors (subgroup III). As can be seen from figure \ref{fig:bt_oh2012A}, eyeblinks were much more likely to occur in the +- 500ms surrounding the subject response. The effect was even more pronounced for subgroups I and II (88\% majority). For all three subgroups, this suggests that spontaneous eyeblinks are closely associated with the exertion of cognitive control and may signal a shift in the subjects' internal cognitive or attentional state.
+An experiment by \textcite{oh2012} employed the Stroop test to examine task-evoked \acrshort{ebr}, similar to \textcite{bochove2012}. In this study, subjects were presented with 60 randomly distributed congruent and incongruent stimuli. Each stimulus stayed on-screen for two seconds or until the subject responded with a color. They found that, of the 27 subjects in the experiment, each subject could be divided into distinct subgroups based on their eyeblink behavior when responding. Seventeen showed a consistent tendency to blink directly before responding (subgroup I), and seven directly after (subgroup II). Four subjects showed both behaviors (subgroup III). As can be seen from figure \ref{fig:bt/oh2012A}, eyeblinks were much more likely to occur in the +- 500ms surrounding the subject response. The effect was even more pronounced for subgroups I and II (88\% majority). For all three subgroups, this suggests that spontaneous eyeblinks are closely associated with the exertion of cognitive control and may signal a shift in the subjects' internal cognitive or attentional state.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/bt_oh2012A.png}
     \caption{Histogram showing spontaneous eyeblink count as a response to the Stroop test. Each bin (point on the x-axis) represents 30-millisecond intervals. An arrow indicates the time of response. Due to randomness, stimulus onset is between -1500ms and -500ms from the response. Onset of the next stimulus occurs after a one seconds waiting period.}
     \source{\cite{oh2012}}
-    \label{fig:bt_oh2012A}
+    \label{fig:bt/oh2012A}
 \end{figure}
 
-During the same study by \textcite{oh2012}, baseline \acrshort{ebr} levels were measured during a two-minute resting period both between trials and on-task. As can be seen from figure \ref{fig:bt_oh2012B}, the color-naming task produced a slightly higher \acrshort{ebr} than the word-reading task. Furthermore, the average on-task \acrshort{ebr} turned out to be almost 50\% elevated from the resting baseline. These results suggest that \acrshort{ebr} may not only indicate shifts in cognitive control but also sustained attention.
+During the same study by \textcite{oh2012}, baseline \acrshort{ebr} levels were measured during a two-minute resting period both between trials and on-task. As can be seen from figure \ref{fig:bt/oh2012B}, the color-naming task produced a slightly higher \acrshort{ebr} than the word-reading task. Furthermore, the average on-task \acrshort{ebr} turned out to be almost 50\% elevated from the resting baseline. These results suggest that \acrshort{ebr} may not only indicate shifts in cognitive control but also sustained attention.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/bt_oh2012B.png}
     \caption{\acrfull{ebr} during the Stroop test. The resting eyeblink rate in light grey was recorded during a 2 minute long idle period between trials. Word reading and word naming conditions represent trials where the target response was the word of the stimulus and the color of the stimulus, respectively.}
     \source{\cite{oh2012}}
-    \label{fig:bt_oh2012B}
+    \label{fig:bt/oh2012B}
 \end{figure}
 
-\subsection{Eye Gaze}
+\subsection{Eye Gaze} \label{sec:bt/cognitive_impacts/gaze}
 
 Eye gaze comprises all voluntary and involuntary eye movements besides those mentioned above. That is, fixations, saccades, microsaccades, and all features that they induce: Saccadic frequency, fixation duration, field-of-view, etc. Although voluntary in nature, many of these elements are in reality governed by subconscious cognitive aspects. It is these correlations we will attempt to uncover in this subsection. As for the spontaneous eyeblink rate, the neural circuitry underlying these events is difficult to pinpoint. There are, however, empirical studies that show some promising correlations.
 

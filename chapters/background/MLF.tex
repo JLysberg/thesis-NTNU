@@ -9,7 +9,7 @@ A machine learning algorithm is characterized by the fact that it can learn prop
 
 \subsubsection{Classification}
 
-In the classification task, the computer program is asked to determine which of $k$ discrete categories some input belongs. Given data (experience $E$) produced by a function $f:\mathbb{R}^{2}\to\{1,\dots,k\}$, a learning algorithm tasked with classification will generate a hypothesis $h:\mathbb{R}^{2}\to\{1,\dots,k\}$ that approximates $f$. Given an input vector $\mathbf{x}$, $h(\mathbf{x})$ outputs a probability distribution over possible categories. One popular application is that of object detection, where an image is given as the input $\mathbf{x}$, and the output is the category to which an object in the image belongs. If $k=2$, the learning problem is called binary classification, and the hypothesis $h$ merely outputs the probability of whether an input represents a single target category or not. Multi-class classification is more common in the general case, however. 
+In the classification task, the computer program is asked to determine which of $k$ discrete categories some input belongs. Given data (experience $E$) produced by a function $f:\mathbb{R}^{2}\to\{1,\dots,k\}$, a learning algorithm tasked with classification will generate a hypothesis $h:\mathbb{R}^{2}\to\{1,\dots,k\}$ that approximates $f$. Given an input vector $\bm{x}$, $h(\bm{x})$ outputs a probability distribution over possible categories. One popular application is that of object detection, where an image is given as the input $\bm{x}$, and the output is the category to which an object in the image belongs. If $k=2$, the learning problem is called binary classification, and the hypothesis $h$ merely outputs the probability of whether an input represents a single target category or not. Multi-class classification is more common in the general case, however. 
 
 % \subsubsection{The No Free Lunch Theorem}
 
@@ -25,44 +25,44 @@ Since we often cannot assume any prior knowledge of the inherent properties of $
 
 \subsubsection{Supervised Learning}
 
-A machine learning algorithm can be called a supervised learning algorithm if it is trained by experiencing a dataset of examples $\mathbf{x}$, where each example is associated with a target $y$. The training process thus becomes to approximate a function that can reproduce $y$ given $\mathbf{x}$.
+A machine learning algorithm can be called a supervised learning algorithm if it is trained by experiencing a dataset of examples $\bm{x}$, where each example is associated with a target $y$. The training process thus becomes to approximate a function that can reproduce $y$ given $\bm{x}$.
 
-One classic example is that of linear regression, which is supervised learning in its simplest form \cite{goodfellow2016}. The goal of linear regression is to predict a target value $\hat{y}\in\mathbb{R}$ from an $n$-dimensional input vector $\mathbf{x}\in\mathbb{R}^n$. Since we know then that the output should be a linear function of the input, the problem becomes approximating the hypothesis given by equation \ref{eq:bt_linReg}. Here $\mathbf{w}\in\mathbb{R}^n$ is a vector of model parameters, which control the behavior of the system.
+One classic example is that of linear regression, which is supervised learning in its simplest form \cite{goodfellow2016}. The goal of linear regression is to predict a target value $\hat{y}\in\mathbb{R}$ from an $n$-dimensional input vector $\bm{x}\in\mathbb{R}^n$. Since we know then that the output should be a linear function of the input, the problem becomes approximating the hypothesis given by equation \ref{eq:bt_linReg}. Here $\bm{w}\in\mathbb{R}^n$ is a vector of model parameters, which control the behavior of the system.
 
 \begin{equation}
     \label{eq:bt_linReg}
-    h(\mathbf{x})=\hat{y}=\mathbf{w}^T\mathbf{x}
+    h(\bm{x})=\hat{y}=\bm{w}^T\bm{x}
 \end{equation}
 
-Now, to determine the optimal value of $\mathbf{w}$, we need a performance measure $P$. For this particular problem, a typical choice is the \textit{mean squared error} (MSE), given in equation \ref{eq:bt_MSE}. MSE is calculated from a matrix of $m$ input vectors $\mathbf{X}=\{\mathbf{x}_1,\dots,\mathbf{x}_m\}$, their corresponding $m$ target values $\mathbf{y}=\{y_1,\dots,y_m\}$, and model parameters $\mathbf{w}$.
+Now, to determine the optimal value of $\bm{w}$, we need a performance measure $P$. For this particular problem, a typical choice is the \textit{mean squared error} (MSE), given in equation \ref{eq:bt_MSE}. MSE is calculated from a matrix of $m$ input vectors $\bm{X}=\{\bm{x}_1,\dots,\bm{x}_m\}$, their corresponding $m$ target values $\bm{y}=\{y_1,\dots,y_m\}$, and model parameters $\bm{w}$.
 
 \begin{equation}
     \label{eq:bt_MSE}
-    MSE=\frac{1}{m}\sum_{i}(\hat{\mathbf{y}}-\mathbf{y})^2
-    =\frac{1}{m}||\hat{\mathbf{y}}-\mathbf{y}||^2_2
+    MSE=\frac{1}{m}\sum_{i}(\hat{\bm{y}}-\bm{y})^2
+    =\frac{1}{m}||\hat{\bm{y}}-\bm{y}||^2_2
 \end{equation}
 
-By setting $\hat{\mathbf{y}}=\mathbf{y}$, one can see that $MSE=0$, and furthermore that it increases linearly with the euclidean distance between $\hat{\mathbf{y}}$ and $\mathbf{y}$. As such, the optimal model parameters can be obtained by minimizing $MSE$ with respect to $\mathbf{w}$. This can be done by solving for where its gradient is $\mathbf{0}$, as is in equations \ref{eq:bt_MSE_gradientB} to \ref{eq:bt_MSE_gradientE}.
+By setting $\hat{\bm{y}}=\bm{y}$, one can see that $MSE=0$, and furthermore that it increases linearly with the euclidean distance between $\hat{\bm{y}}$ and $\bm{y}$. As such, the optimal model parameters can be obtained by minimizing $MSE$ with respect to $\bm{w}$. This can be done by solving for where its gradient is $\bm{0}$, as is in equations \ref{eq:bt_MSE_gradientB} to \ref{eq:bt_MSE_gradientE}.
 
 \begin{equation}
     \label{eq:bt_MSE_gradientB}
-    \nabla_{\mathbf{w}}MSE=\mathbf{0}
+    \nabla_{\bm{w}}MSE=\bm{0}
 \end{equation}
 \begin{equation}
-    \Rightarrow \nabla_{\mathbf{w}}\frac{1}{m}||\hat{\mathbf{y}}-\mathbf{y}||^2_2=\mathbf{0}
+    \Rightarrow \nabla_{\bm{w}}\frac{1}{m}||\hat{\bm{y}}-\bm{y}||^2_2=\bm{0}
 \end{equation}
 \begin{equation}
-    \Rightarrow \nabla_{\mathbf{w}}\frac{1}{m}||\mathbf{X}\mathbf{w}-\mathbf{y}||^2_2=\mathbf{0}
+    \Rightarrow \nabla_{\bm{w}}\frac{1}{m}||\bm{X}\bm{w}-\bm{y}||^2_2=\bm{0}
 \end{equation}
 \begin{equation*}
     \vdots
 \end{equation*}
 \begin{equation}
     \label{eq:bt_MSE_gradientE}
-    \Rightarrow \mathbf{w}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}
+    \Rightarrow \bm{w}=(\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{y}
 \end{equation}
 
-Evaluation of equation \ref{eq:bt_MSE_gradientE} results in a value of $\mathbf{w}$ which optimally fits the training dataset. As such, it constitutes a simple learning algorithm \cite{goodfellow2016}.
+Evaluation of equation \ref{eq:bt_MSE_gradientE} results in a value of $\bm{w}$ which optimally fits the training dataset. As such, it constitutes a simple learning algorithm \cite{goodfellow2016}.
 
 % For object detection, each image in the dataset is accompanied by a value representing the object it displays. 
 

@@ -1,0 +1,194 @@
+\chapter{Model Architecture Details} \label{app:arch_details}
+
+% \cleardoublepage
+
+\begin{lstlisting}[caption=\acrfull{mlp}]
+    ======================================================================
+    Layer (type:depth-idx)                   Output Shape    Param #
+    ======================================================================
+    MLP                                      --              --
+    └─Sequential: 1-1                        [64, 4]         --
+         ├─Flatten: 2-1                      [64, 1024]      --
+         ├─Dropout: 2-2                      [64, 1024]      --
+         ├─Linear: 2-3                       [64, 500]       512,500
+         ├─ReLU: 2-4                         [64, 500]       --
+         ├─Dropout: 2-5                      [64, 500]       --
+         ├─Linear: 2-6                       [64, 500]       250,500
+         ├─ReLU: 2-7                         [64, 500]       --
+         ├─Dropout: 2-8                      [64, 500]       --
+         ├─Linear: 2-9                       [64, 500]       250,500
+         ├─ReLU: 2-10                        [64, 500]       --
+         ├─Dropout: 2-11                     [64, 500]       --
+         ├─Linear: 2-12                      [64, 4]         2,004
+         └─Softmax: 2-13                     [64, 4]         --
+    ======================================================================
+    Total params: 1,015,504
+    Trainable params: 1,015,504
+    Non-trainable params: 0
+    Total mult-adds (M): 64.99
+    ======================================================================
+    Input size (MB): 0.26
+    Forward/backward pass size (MB): 0.77
+    Params size (MB): 4.06
+    Estimated Total Size (MB): 5.09
+    ======================================================================
+\end{lstlisting}
+
+\newpage
+\begin{lstlisting}[caption=\acrfull{fcn}]
+    ======================================================================
+    Layer (type:depth-idx)                   Output Shape    Param #
+    ======================================================================
+    FCN                                      --              --
+    └─Sequential: 1-1                        [64, 4]         --
+         ├─Conv1d: 2-1                       [64, 128, 256]  4,224
+         ├─BatchNorm1d: 2-2                  [64, 128, 256]  256
+         ├─ReLU: 2-3                         [64, 128, 256]  --
+         ├─Conv1d: 2-4                       [64, 256, 256]  164,096
+         ├─BatchNorm1d: 2-5                  [64, 256, 256]  512
+         ├─ReLU: 2-6                         [64, 256, 256]  --
+         ├─Conv1d: 2-7                       [64, 128, 256]  98,432
+         ├─BatchNorm1d: 2-8                  [64, 128, 256]  256
+         ├─ReLU: 2-9                         [64, 128, 256]  --
+         ├─AdaptiveAvgPool1d: 2-10           [64, 128, 1]    --
+         ├─Flatten: 2-11                     [64, 128]       --
+         ├─Linear: 2-12                      [64, 4]         516
+         └─Softmax: 2-13                     [64, 4]         --
+    ======================================================================
+    Total params: 268,292
+    Trainable params: 268,292
+    Non-trainable params: 0
+    Total mult-adds (G): 4.37
+    ======================================================================
+    Input size (MB): 0.26
+    Forward/backward pass size (MB): 134.22
+    Params size (MB): 1.07
+    Estimated Total Size (MB): 135.56
+    ======================================================================
+\end{lstlisting}
+
+\newpage
+\begin{lstlisting}[caption=\acrfull{mcdcnn}]
+    ======================================================================
+    Layer (type:depth-idx)                   Output Shape    Param #
+    ======================================================================
+    MCDCNN                                   --              --
+    └─Sequential: 1-1                        [64, 4]         --
+         ├─SepConv1d: 2-1                    [64, 8, 256]    --
+         │    └─Sequential: 3-1              [64, 8, 256]    64
+         ├─ReLU: 2-2                         [64, 8, 256]    --
+         ├─MaxPool1d: 2-3                    [64, 8, 128]    --
+         ├─SepConv1d: 2-4                    [64, 8, 128]    --
+         │    └─Sequential: 3-2              [64, 8, 128]    120
+         ├─ReLU: 2-5                         [64, 8, 128]    --
+         ├─MaxPool1d: 2-6                    [64, 8, 64]     --
+         ├─Flatten: 2-7                      [64, 512]       --
+         ├─Linear: 2-8                       [64, 732]       375,516
+         ├─ReLU: 2-9                         [64, 732]       --
+         ├─Linear: 2-10                      [64, 4]         2,932
+         └─Softmax: 2-11                     [64, 4]         --
+    ======================================================================
+    Total params: 378,632
+    Trainable params: 378,632
+    Non-trainable params: 0
+    Total mult-adds (M): 26.25
+    ======================================================================
+    Input size (MB): 0.26
+    Forward/backward pass size (MB): 3.00
+    Params size (MB): 1.51
+    Estimated Total Size (MB): 4.77
+    ======================================================================
+\end{lstlisting}
+
+\newpage
+\begin{lstlisting}[caption=\acrfull{resnet11}]
+    ===========================================================================
+    Layer (type:depth-idx)                        Output Shape    Param #
+    ===========================================================================
+    ResNet11                                      --              --
+    ├─Sequential: 1-1                             [64, 128, 256]  --
+    │    ├─ResNetBlock: 2-1                       [64, 64, 256]   --
+    │    │    ├─ResNet11BlockSegment: 3-1         [64, 64, 256]   35,392
+    │    │    ├─Sequential: 3-2                   [64, 64, 256]   448
+    │    │    └─ReLU: 3-3                         [64, 64, 256]   --
+    │    ├─ResNetBlock: 2-2                       [64, 128, 256]  --
+    │    │    ├─ResNet11BlockSegment: 3-4         [64, 128, 256]  197,760
+    │    │    ├─Sequential: 3-5                   [64, 128, 256]  8,576
+    │    │    └─ReLU: 3-6                         [64, 128, 256]  --
+    │    └─ResNetBlock: 2-3                       [64, 128, 256]  --
+    │         ├─ResNet11BlockSegment: 3-7         [64, 128, 256]  263,296
+    │         ├─Sequential: 3-8                   [64, 128, 256]  16,768
+    │         └─ReLU: 3-9                         [64, 128, 256]  --
+    └─Sequential: 1-2                             [64, 4]         --
+         ├─AdaptiveAvgPool1d: 2-4                 [64, 128, 1]    --
+         ├─Flatten: 2-5                           [64, 128]       --
+         ├─Linear: 2-6                            [64, 4]         516
+         └─Softmax: 2-7                           [64, 4]         --
+    ===========================================================================
+    Total params: 522,756
+    Trainable params: 522,756
+    Non-trainable params: 0
+    Total mult-adds (G): 8.51
+    ===========================================================================
+    Input size (MB): 0.26
+    Forward/backward pass size (MB): 335.55
+    Params size (MB): 2.09
+    Estimated Total Size (MB): 337.90
+    ===========================================================================
+\end{lstlisting}
+
+\newpage
+\begin{lstlisting}[caption=\acrfull{resnet18}]
+    ===========================================================================
+    Layer (type:depth-idx)                        Output Shape    Param #
+    ===========================================================================
+    ResNet18                                      --              --
+    ├─Sequential: 1-1                             [64, 512, 256]  --
+    │    ├─ResNetBlock: 2-1                       [64, 64, 256]   --
+    │    │    ├─ResNet18BlockSegment: 3-1         [64, 64, 256]   13,440
+    │    │    ├─Sequential: 3-2                   [64, 64, 256]   448
+    │    │    └─ReLU: 3-3                         [64, 64, 256]   --
+    │    ├─ResNetBlock: 2-2                       [64, 64, 256]   --
+    │    │    ├─ResNet18BlockSegment: 3-4         [64, 64, 256]   24,960
+    │    │    ├─Sequential: 3-5                   [64, 64, 256]   4,288
+    │    │    └─ReLU: 3-6                         [64, 64, 256]   --
+    │    ├─ResNetBlock: 2-3                       [64, 128, 256]  --
+    │    │    ├─ResNet18BlockSegment: 3-7         [64, 128, 256]  74,496
+    │    │    ├─Sequential: 3-8                   [64, 128, 256]  8,576
+    │    │    └─ReLU: 3-9                         [64, 128, 256]  --
+    │    ├─ResNetBlock: 2-4                       [64, 128, 256]  --
+    │    │    ├─ResNet18BlockSegment: 3-10        [64, 128, 256]  99,072
+    │    │    ├─Sequential: 3-11                  [64, 128, 256]  16,768
+    │    │    └─ReLU: 3-12                        [64, 128, 256]  --
+    │    ├─ResNetBlock: 2-5                       [64, 256, 256]  --
+    │    │    ├─ResNet18BlockSegment: 3-13        [64, 256, 256]  296,448
+    │    │    ├─Sequential: 3-14                  [64, 256, 256]  33,536
+    │    │    └─ReLU: 3-15                        [64, 256, 256]  --
+    │    ├─ResNetBlock: 2-6                       [64, 256, 256]  --
+    │    │    ├─ResNet18BlockSegment: 3-16        [64, 256, 256]  394,752
+    │    │    ├─Sequential: 3-17                  [64, 256, 256]  66,304
+    │    │    └─ReLU: 3-18                        [64, 256, 256]  --
+    │    ├─ResNetBlock: 2-7                       [64, 512, 256]  --
+    │    │    ├─ResNet18BlockSegment: 3-19        [64, 512, 256]  1,182,720
+    │    │    ├─Sequential: 3-20                  [64, 512, 256]  132,608
+    │    │    └─ReLU: 3-21                        [64, 512, 256]  --
+    │    └─ResNetBlock: 2-8                       [64, 512, 256]  --
+    │         ├─ResNet18BlockSegment: 3-22        [64, 512, 256]  1,575,936
+    │         ├─Sequential: 3-23                  [64, 512, 256]  263,680
+    │         └─ReLU: 3-24                        [64, 512, 256]  --
+    └─Sequential: 1-2                             [64, 4]         --
+         ├─AdaptiveAvgPool1d: 2-9                 [64, 512, 1]    --
+         ├─Flatten: 2-10                          [64, 512]       --
+         ├─Linear: 2-11                           [64, 4]         2,052
+         └─Softmax: 2-12                          [64, 4]         --
+    ===========================================================================
+    Total params: 4,190,084
+    Trainable params: 4,190,084
+    Non-trainable params: 0
+    Total mult-adds (G): 68.43
+    ===========================================================================
+    Input size (MB): 0.26
+    Forward/backward pass size (MB): 1509.95
+    Params size (MB): 16.76
+    Estimated Total Size (MB): 1526.97
+\end{lstlisting}

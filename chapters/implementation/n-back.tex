@@ -11,15 +11,15 @@ For this particular use case, the author chose three difficulty levels; N=0, N=1
 
 The first level (N=0) is intended to impose no particular cognitive load on the subject besides requiring sustained attention. It is achieved by showing the target stimulus before the task commences. This way, working memory merely needs to memorize one constant target. For levels N=1 and N=2, the target stimuli is dynamically determined by the N-back stimuli.
 
-Experimental trials are structured so that the subject is exposed to continuous engagement for only five minutes at a time. Every trial consists of three N-Back blocks, each split into three block segments for every task difficulty (N=0, N=1, N=2). Block segments are further structured as illustrated in figure \ref{fig:impl_NBackBlockSeg}. In this particular example, N=1. It begins with two milliseconds of segment presentation, where the subject is made aware of the segment difficulty. Then, nine series of screens are presented, each showing a stimulus for 500 milliseconds, followed by a 1500 milliseconds long blank screen. Finally, a fixation cross is presented for 6000 milliseconds. The idle, onset, execution, and offset labels in the figure will be detailed in section \ref{sec:impl/dataset}.
+Experimental trials are structured so that the subject is exposed to continuous engagement for only five minutes at a time. Every trial consists of three N-Back blocks, each split into three block segments for every task difficulty (N=0, N=1, N=2). Block segments are further structured as illustrated in figure \ref{fig:impl/NBackBlockSeg}. In this particular example, N=1. It begins with two milliseconds of segment presentation, where the subject is made aware of the segment difficulty. Then, nine series of screens are presented, each showing a stimulus for 500 milliseconds, followed by a 1500 milliseconds long blank screen. Finally, a fixation cross is presented for 6000 milliseconds. The idle, onset, execution, and offset labels in the figure will be detailed in section \ref{sec:impl/dataset}.
 
 % The target stays constant throughout the task, such that the subject does not need to engage working memory besides , having a constant target throughout the trial.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/impl_NBackBlock.png}
+    \includegraphics[width=\textwidth]{figures/impl_NBackBlock.png}
     \caption{Timeline for each N-Back block segment. The current example represents N=0. One N-Back block represents three such block segments, one for each difficulty level.}
-    \label{fig:impl_NBackBlockSeg}
+    \label{fig:impl/NBackBlockSeg}
 \end{figure}
 
 

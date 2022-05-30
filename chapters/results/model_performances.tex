@@ -1,0 +1,18 @@
+\section{Classification Accuracies}
+
+Table \ref{tab:res/performance} gives an overall summary of the classification accuracies observed for the various model architectures discussed in section \ref{sec:impl/clf_models}. Each model was trained on the four label groups detailed in section \ref{sec:impl/dataset}. Classification accuracy is calculated by passing a randomly selected set of input sequences through the model and observing its predicted class for each sequence. The proportion of correct predictions gives an accuracy score. 
+
+\begin{table}[!ht]
+    \centering
+    \caption{Classification accuracy for all model architectures and label groups. The best model for each label group is highlighted in \textbf{bold}}
+    \begin{tabular}{ll||ccccc}
+        \multicolumn{2}{l||}{\diagbox{Label}{Model}} & \acrshort{mlp}     & \acrshort{fcn}              & \acrshort{mcdcnn}  & \acrshort{resnet11}         & \acrshort{resnet18}          \\ 
+        \hhline{==::=====}
+        \multirow{2}{*}{State } & Full               & - & \textbf{71.43\%} & - & 70.78\%          & 66.88\%           \\
+                                & Binary             & - & 94.24\%          & - & \textbf{95.40\%} & 94.25\%           \\ 
+        \hline
+        \multirow{2}{*}{Level } & Full               & 52.78\% & \textbf{61.11\%} & 48.61\% & 58.33\%          & 58.32\%           \\
+                                & Binary             & 65.62\% & 73.96\%          & 69.79\% & 77.08\%          & \textbf{82.29\%} 
+    \end{tabular}
+    \label{tab:res/performance}
+\end{table}
