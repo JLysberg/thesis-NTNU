@@ -1,3 +1,18 @@
 \chapter*{Abstract}
 
-nei
+% One liner
+This project researches cognitive load classification using pupillometric- and gaze data provided by modern eye-tracking. Results are motivated by the prospects of creating a data-driven platform that facilitates performance analytics and health surveillance for casual and professional gaming.
+
+%some background information (B)
+%the main activity / purpose / scope (P)
+\acrfull{esports} is a growing industry, and as kids and adults get progressively into competitive gaming, the need for concrete feedback for performance advancements arises. However, most good feedback comes from direct coaching, which is no reasonable alternative for the casual gamer. With the emergence of commercially available eye-tracking, the solution presents itself as an automated performance distinction method, using ocular data to infer insights into cognition. 
+
+% Cognitive load emerges as a reliable measure of skill distinction, 
+% \cite{may1990}, among others, prove an immense correlation between ocular data and cognitive states. Along with the emergence of low-cost eye-tracking and increasingly advanced machine learning methods, this fact advocates further work towards performance analytics at a low cost and broad availability. 
+
+%some information about the methods (M)
+The solution is enabled by the ocular system's immense implication on cognition. Cognitive load, in particular, has shown impressive correlations with pupil size, \acrfull{ebr}, and gaze patterns. A set of state-of-the-art deep learning architectures was explored, developed, and compared for \acrfull{tsc}. Eye-tracking data was recorded in an environment with a carefully controlled task to reliably capture cognitive load as ground truth in a training dataset. The dataset was subsequently labeled by task state and difficulty level and used to train classification models.
+
+%the most important results (R)
+%conclusion and recommendation (C)
+The dataset displayed correlations remarkably consistent with the literature. Although limited in quantity and generalizability, it exhibited features distinct enough to train our neural networks for intra-task and intra-subject classification. In the end, the best models could distinguish between four states of task exposure with an accuracy of 71\% and three levels of cognitive load with an accuracy of 61\%. This project serves as a proof of concept which lays the foundation for further research on non-intrusive means for performance analytics. Future work should address dataset creation and generalizability to generate models that can reliably distinguish cognitive load between subjects and any task.

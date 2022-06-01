@@ -24,7 +24,7 @@ As expected, the deeper convolutional networks took much longer to train than \a
 % When applying the \acrshort{mlp} and \acrshort{mcdcnn} architectures on the state label groups, 
 % Classification accuracies from predictions on the state label groups by the \acrshort{mlp} and \acrshort{mcdcnn} architectures were excluded from this table. 
 
-\subsection{Confusion Matrices}
+\subsection{Confusion Matrices} \label{sec:disc/classification/cm}
 
 % Looking at figures \ref{fig:res/conf_fstate} and \ref{fig:res/conf_bstate}, one can see a clear concentration of classifications along the diagonal cells, with some exceptions. On the \acrshort{fs} dataset, the idle and onset labels seem particularly difficult to distinguish from execution and onset, likely because these classes have very distinct features which are captured by the convolutional filters. Especially for the execution state, the sawtooth pattern caused by consistent blink periods would explain its high rate of correct predictions. The phenomenon is even more pronounced in the \acrshort{bs} dataset, where the only other class is the idle state. 
 
