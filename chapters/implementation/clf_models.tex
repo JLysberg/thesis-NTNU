@@ -10,7 +10,7 @@ The architecture of a neural network is what defines the hypothesis space in whi
 
 All models aim to be fully end-to-end and able to classify multivariate time series of undefined dimension. Input time series are multivariate in their data channels (e.g. pupillary, coordinate and \acrshort{ebr} data channels) and temporal. Their dimension is therefore defined by its length in time, sampling frequency and number of data channels. 
 
-% \newpage
+\newpage
 \subsubsection{\acrlong{mlp}}
 
 \begin{figure}[h]
@@ -84,18 +84,18 @@ Both ResNet architectures sport the greatest of parameters of all convolutional 
 
 % Both ResNet versions possess similar advantages as the \acrshort{fcn}, having a number of parameters which is invariant of the size of its inputs.
 
-\newpage
-\subsection{Hyperparameters and Training}
+% \newpage
+% \subsection{Hyperparameters and Training}
 
-In addition to comparing the intrinsically different architectures detailed above, the classifications each model produces are highly influenced by the parameters with which they are trained. Some mostly affected training efficiency, while others had a clear effect on either classification accuracy or tendency to overfit the training data.
+% In addition to comparing the intrinsically different architectures detailed above, the classifications each model produces are highly influenced by the parameters with which they are trained. Some mostly affected training efficiency, while others had a clear effect on either classification accuracy or tendency to overfit the training data.
 
-\begin{itemize}
-    \item Segment length
-    \item Time series augmentation
-    \item Blink rate attention window
-    \item Time series smoothing window
-    \item ? Batch size
-    \item ? Learning rate
-    \item ? Dropout
-    \item Batch Normalization
-\end{itemize}
+% \begin{itemize}
+%     \item Segment length
+%     \item Time series augmentation
+%     \item Blink rate attention window
+%     \item Time series smoothing window
+%     \item ? Batch size
+%     \item ? Learning rate
+%     \item ? Dropout
+%     \item Batch Normalization
+% \end{itemize}

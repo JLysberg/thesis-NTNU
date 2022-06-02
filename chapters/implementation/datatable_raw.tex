@@ -1,0 +1,29 @@
+\renewcommand\cellalign{lc}
+\begin{table}[ht!]
+    \caption{Description of the 16 raw data channels as output from the eye tracker. }
+    \label{tab:impl/dataset/raw}
+    \makebox[\textwidth][c]{
+        \begin{tabular}{lll}
+        \toprule
+        Column name & Description & Missing data \\
+        \midrule
+        Recording timestamp [us]      &         \makecell{Time since start of recording in us} &           \\[-10pt]\\
+        Computer timestamp [us]       &         \makecell{Unix time of host computer} &           \\[-10pt]\\
+        Pupil diameter left [mm]      &         \makecell{Raw pupil diameter of left eye in mm} &        18\% \\[-10pt]\\
+        Pupil diameter right [mm]     &         \makecell{Raw pupil diameter of right eye in mm} &        15\% \\[-10pt]\\
+        Gaze point X [MCS norm]       &         \makecell{Left/right eye average on-screen gaze\\ coordinate in X-dimension} &        14\% \\[-10pt]\\
+        Gaze point Y [MCS norm]       &         \makecell{Left/right eye average on-screen gaze\\ coordinate in Y-dimension} &        14\% \\[-10pt]\\
+        Gaze point left X [MCS norm]  &         \makecell{Left eye on-screen gaze coordinate in\\ X-dimension} &        19\% \\[-10pt]\\
+        Gaze point left Y [MCS norm]  &         \makecell{Left eye on-screen gaze coordinate in\\ Y-dimension} &        19\% \\[-10pt]\\
+        Gaze point right X [MCS norm] &         \makecell{Right eye on-screen gaze coordinate in\\ X-dimension} &        15\% \\[-10pt]\\
+        Gaze point right Y [MCS norm] &         \makecell{Right eye on-screen gaze coordinate in\\ Y-dimension} &        15\% \\[-10pt]\\
+        Gaze event duration [ms]      &         \makecell{Total duration of present eye movement\\ type in ms} &           \\[-10pt]\\
+        Sensor                        &         \makecell{Identifier of eye-tracker used for\\ recording} &           \\[-10pt]\\
+        Validity left                 &         \makecell{True if data from left eye is available,\\ else false} &           \\[-10pt]\\
+        Validity right                &         \makecell{True if data from right eye is available,\\ else false} &           \\[-10pt]\\
+        Presented Stimulus name       &         \makecell{Label to which the current sample\\ belongs} &          \\[-10pt]\\
+        Eye movement type             &         \makecell{Type of eye movement, e.g. fixation or\\ saccade} &           \\
+        \bottomrule
+        \end{tabular}
+    }
+\end{table}

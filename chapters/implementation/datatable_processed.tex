@@ -1,0 +1,28 @@
+% \renewcommand\cellalign{lc}
+\begin{table}[ht!]
+    \caption{Description of the final five- and two-channel datasets after processing and labeling. The left table desribe the dataset that contains actual sample data. The right table only hold target labels for each segment.}
+    \label{tab:impl/dataset/processed}
+    \centering
+    \makebox[\textwidth][c]{
+        \begin{tabular}{lll}
+            \toprule
+            Column name & Description \\
+            \midrule
+            segment                   &         \makecell{Sample's segment ID}         \\[-10pt]\\
+            v\_p                     &         \makecell{Left/right eye averaged\\ pupil diameter, min/max\\ normalized between 0 and 1}         \\[-10pt]\\
+            v\_br                   &         \makecell{Blink rate, min/max\\ normalized between 0 and 1}         \\[-10pt]\\
+            v\_x                     &         \makecell{Left/right eye averaged\\ on-screen gaze coordinate\\ in X-dimension}         \\[-10pt]\\
+            v\_y                     &         \makecell{Left/right eye averaged\\ on-screen gaze coordinate\\ in Y-dimension}         \\
+            \bottomrule
+        \end{tabular}
+
+        \begin{tabular}{lll}
+            \toprule
+            Column name & Description \\
+            \midrule
+            segment                   &         Sample's segment ID \\[-10pt]\\
+            target                  &         Target label for segment  \\[134pt]\\
+            \bottomrule
+        \end{tabular}
+    }
+\end{table}
