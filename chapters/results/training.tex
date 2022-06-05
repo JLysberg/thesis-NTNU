@@ -17,57 +17,59 @@ All classification models were trained on the cloud computing instance mentioned
 \end{table}
 \FloatBarrier
 
-The following subsections will present the history of training loss and -accuracy for every model architecture. Training loss was captured by logging the cross-entropy loss used to train model parameters during backpropagation. Validation accuracy was calculated by running the model on a validation dataset for every epoch. It is a percentage measure of how many classes were predicted correctly from a given set of inputs.
+\subsection{History}
 
-\subsection{\acrlong{mlp}}
+The following plots present the history of training loss and accuracy for the two best \acrshort{fs} models, \acrshort{fcn} and \acrshort{resnet11}. Training loss was captured by logging the cross-entropy loss used to train model parameters during backpropagation. Validation accuracy was calculated by running the model on a validation dataset for every epoch. It is a percentage measure of how many classes were predicted correctly from a given set of inputs.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{figures/res_tr_MLP_blevel.png}
-    \caption{Training loss and validation accuracy for \acrlong{mlp} during training. This particular example is from the binary level label group. Left graph shows the cross-entropy loss for every epoch. Right graph shows classification accuracy on the validation dataset for every epoch.}
-    \label{fig:res_tr_mlp}
-\end{figure}
-\FloatBarrier
+% \subsection{\acrlong{mlp}}
 
-\subsection{\acrlong{fcn}}
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\textwidth]{figures/res_tr_MLP_blevel.png}
+%     \caption{Training loss and validation accuracy for \acrlong{mlp} during training. This particular example is from the binary level label group. Left graph shows the cross-entropy loss for every epoch. Right graph shows classification accuracy on the validation dataset for every epoch.}
+%     \label{fig:res_tr_mlp}
+% \end{figure}
+% \FloatBarrier
+
+\subsubsection{\acrlong{fcn}}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{figures/res_tr_FCN_fstate.png}
-    \caption{Training history for \acrlong{fcn}. This particular example is from the full state label group. Left graph shows the cross entropy loss for every epoch. Right graph shows classification accuracy on the validation dataset for every epoch.}
+    \caption{Training history for \acrlong{fcn} on the \acrshort{fs} label group. Left graph shows the cross-entropy loss for every epoch. Right graph shows classification accuracy on the validation dataset for every epoch.}
     \label{fig:res_tr_fcn}
 \end{figure}
 \FloatBarrier
 
-\newpage
-\subsection{\acrlong{mcdcnn}}
+% \newpage
+% \subsection{\acrlong{mcdcnn}}
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\textwidth]{figures/res_tr_MCDCNN_blevel.png}
+%     \caption{Training history for \acrlong{mcdcnn}. This particular example is from the binary level label group. See figure \ref{fig:res_tr_mlp} for plot descriptions.}
+%     \label{fig:res_tr_mcdcnn}
+% \end{figure}
+% \FloatBarrier
+
+\subsubsection{\acrlong{resnet11}}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{figures/res_tr_MCDCNN_blevel.png}
-    \caption{Training history for \acrlong{mcdcnn}. This particular example is from the binary level label group. Left graph shows the cross entropy loss for every epoch. Right graph shows classification accuracy on the validation dataset for every epoch.}
-    \label{fig:res_tr_mcdcnn}
-\end{figure}
-\FloatBarrier
-
-\subsection{\acrlong{resnet11}}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{figures/res_tr_ResNet11_bstate.png}
-    \caption{Training history for \acrlong{resnet11}. This particular example is from the binary state label group. Left graph shows the cross entropy loss for every epoch. Right graph shows classification accuracy on the validation dataset for every epoch.}
+    \includegraphics[width=\textwidth]{figures/res_tr_ResNet11_state.png}
+    \caption{Training history for \acrlong{resnet11}on the \acrshort{fs} label group. See figure \ref{fig:res_tr_fcn} for plot description.}
     \label{fig:res_tr_resnet11}
 \end{figure}
 \FloatBarrier
 
-\newpage
-\subsection{\acrlong{resnet18}}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{figures/res_ResNet18_blevel.png}
-    \caption{Training history for \acrlong{resnet18}. This particular example is from the binary level label group. Left graph shows the cross entropy loss for every epoch. Right graph shows classification accuracy on the validation dataset for every epoch.}
-    \label{fig:res_tr_resnet18}
-\end{figure}
-\FloatBarrier
 % \newpage
+% \subsection{\acrlong{resnet18}}
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\textwidth]{figures/res_ResNet18_blevel.png}
+%     \caption{Training history for \acrlong{resnet18}. This particular example is from the binary level label group. See figure \ref{fig:res_tr_mlp} for plot descriptions.}
+%     \label{fig:res_tr_resnet18}
+% \end{figure}
+% \FloatBarrier
+\newpage

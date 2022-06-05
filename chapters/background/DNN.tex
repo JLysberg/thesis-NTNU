@@ -1,10 +1,10 @@
 \section{Deep Learning} \label{sec:bt/DNN}
 
-Deep learning is a powerful extension of the basic learning algorithms detailed above. In theory, any problem which can be modeled as the mapping of an input vector to an output vector can be solved by deep learning \cite{goodfellow2016}. In other words, any function of any complexity can be approximated given sufficiently large models and sufficiently large labeled training examples. 
+Deep learning is a powerful extension of the simple learning algorithms detailed above. In theory, any problem which can be modeled as the mapping of an input vector to an output vector can be solved by deep learning \cite{goodfellow2016}. In other words, any function of any complexity can be approximated given sufficiently large models and sufficiently large labeled training examples. 
 
 \subsection{Deep Feedforward Neural Networks}
 
-Feedforward neural networks constitute a branch of deep learning covering models with a one-directional flow of data from input to output. They are called \textit{neural networks} because they are loosely inspired by the neural circuitry of the human brain. Extending this analogy, all human perception may be considered one vast deep feedforward neural network. Sensory input from sight, touch, smell, taste, and hearing are mapped through countless layers of neurons to output what we perceive of the world. 
+Feedforward neural networks constitute a branch of deep learning covering models with a one-directional data flow from input to output. They are called \textit{neural networks} because they are loosely inspired by the neural circuitry of the human brain. Extending this analogy, all human perception may be considered one vast deep feedforward neural network. It works by mapping sensory input from sight, touch, smell, taste, and hearing through countless layers of neurons to output what we perceive of the world. Artificial neural networks work similarly by mapping a vector of input data points to one or more output values.
 
 Even in their simplest form, deep feedforward neural networks overcome many challenges that linear models face. Linear regression, for instance, may never accurately approximate a non-linear function or capture interactions between two or more input variables. This limitation may only be overcome by introducing a nonlinearity to the input $\bm{x}$. We encapsulate this nonlinearity as $\phi(\bm{x})$. Thus, the equivalent to equation \ref{eq:bt_linReg} becomes equation \ref{eq:bt/dnn/dfnn}.
 
@@ -15,7 +15,7 @@ Even in their simplest form, deep feedforward neural networks overcome many chal
 
 We now have another set of trainable parameters $\bm{\theta}$, meaning that the final form of $\phi$ is yet to be determined. By allowing the model to experience a given set of labeled training data, $\bm{\theta}$ will gradually converge towards a value that enables the full model to approximate the data optimally.
 % be trained from experiencing a given set of labeled training data. 
-The parameters defined by $\bm{w}$ may subsequently map from $\phi(\bm{x})$ to the desired output. $\phi$ is called a \textit{hidden layer}, because its outputs are unrelated to either the input or output vectors. It can instead be thought of as a transformation of the input layer. 
+The parameters defined by $\bm{w}$ may subsequently map from $\phi(\bm{x})$ to the desired output. $\phi$ is called a \textit{hidden layer} because its outputs are unrelated to either the input or output vectors. It can instead be thought of as a transformation of the input layer. 
 % We can think of $\phi$ as a transformation of the input layer. 
 Its output is hence a new representation or interpretation of the information provided by $\bm{x}$.
 
@@ -49,7 +49,7 @@ To provide the nonlinearity we want, we define $\bm{h}=g(\bm{W}^T\bm{x}+\bm{c})$
 \end{equation}
 
 \newpage
-\subsection{\acrlong{cnn}s}
+\subsection{\acrlong{cnn}s} \label{sec:bt/DNN/CNN}
 
 A \acrfull{cnn} is a specialized kind of deep feedforward neural network that has shown remarkable results in computer vision and language processing. When first proposed by \textcite{lecun1989} in 1989, it revolutionized machine learning problems where data had a grid-structured topology. Such data could be interpreted with more insight while allowing for much deeper and scaleable model architectures. Before its inception, most practitioners had little faith in the advent of neural networks for machine learning. The success of \acrshort{cnn}s triggered a wave of interest, which laid the foundation for further research in neural networks and deep learning \cite{goodfellow2016}.
 
@@ -74,7 +74,7 @@ With \acrshort{cnn} terminology, $x$ is the input to a convolutional layer and $
     S(i,j)=(K*X)(i,j)=\sum_{m}^{}\sum_{n}^{}X(i-m,j-n)K(m,n)
 \end{equation}
 
-Here, each pixel is denoted by $i$ and $j$ for its spatial coordinate in the input image. The output from convolving a kernel $K$ with an image $X$ is called a \textit{feature map} because it is essentially a new "image" where features represented by the kernel are highlighted. A visual representation of how a 2-dimensional convolutional operation may be applied to an input is displayed in figure \ref{fig:bt_conv}.
+Each pixel is denoted by $i$ and $j$ for its spatial coordinate in the input image. The output from convolving a kernel $K$ with an image $X$ is called a \textit{feature map} because it is essentially a new "image" where features represented by the kernel are highlighted. A visual representation of how a 2-dimensional convolutional operation may be applied to an input is displayed in figure \ref{fig:bt_conv}.
 
 \begin{figure}[h]
     \centering
@@ -88,7 +88,7 @@ The kernel $K$ is what defines all properties of a convolutional model. Instead 
 
 \subsubsection{Properties of \acrshort{cnn}s}
 
-What makes \acrshort{cnn}s so efficient is based on three essential ideas. First, since parameters are only present in each kernel, as described above, the network does not need a single parameter for all neurons in every layer. This idea is known as \textit{parameter sharing} and will reduce the storage requirements of large models. Another consequence of the convolutional layers is that input neurons are only connected to a few outputs each. As can be seen in figure \ref{fig:bt_conv}, only four neurons of the input are required to calculate the value of a cell in the output. This idea is called \textit{sparse interactions}. Contrary to an \acrshort{mlp}, which requires connections from every input to every output, this feature drastically improves both computing efficiency and memory requirements during training.
+What makes \acrshort{cnn}s so efficient is based on three essential ideas. First, since parameters are only present in each kernel, as described above, the network does not need a single parameter for all neurons in every layer. This idea is known as \textit{parameter sharing} and will reduce the storage requirements of large models. Another consequence of the convolutional layers is that each input neuron is only connected to a few outputs. As can be seen in figure \ref{fig:bt_conv}, only four neurons of the input are required to calculate the value of a cell in the output. This idea is called \textit{sparse interactions}. Contrary to an \acrshort{mlp}, which requires connections from every input to every output, this feature drastically improves both computing efficiency and memory requirements during training.
 
 Finally, a concept known as \textit{equivariant representations} allows for the detection of features that are independent of spatial (or temporal) position in the input. In other words, if there is an object in the input to a convolutional layer that causes high activations in a feature map, the same object will cause an equally high activation in the same feature map if it were in another position. This effect is another consequence of the way in which feature maps are created by "moving" the same kernel across the entire input. \acrshort{mlp}s, in contrast, lack this property since each neuron is associated with an individual learned weight. 
 % The kernel will eventually reach and generate the convolutional output for that respective feature regardless of its po

@@ -1,13 +1,13 @@
 \chapter{Conclusion}
 
-Through this project, we have gotten to know the intimate relationship between our eyes and cognition. 
+With this project, we have gotten to know the intimate relationship between our eyes and cognition. 
 % Pupil size is an indirect measure of \acrlong{ne} release in the brainstem, which subsequently governs attentional focus. Similarly, \acrlong{ebr} is an indirect measure of \acrlong{da} release, which governs cognitive control. Other gaze-related aspects such as fixation duration and field-of-view are also strongly correlated with the mind. 
 Pupil size and \acrlong{ebr} are highly correlated with attentional focus and cognitive control. Other gaze-related aspects such as fixation duration and field-of-view are similarly associated with the mind. 
 Section \ref{sec:bt/CLT} made the argument that cognitive load may be used as a broad measure of these associations. With the advent of commercially available eye-tracking technology, these findings suggest that it should be possible to make accurate cognitive load measurements available for everyone.
 
 To this end, we have studied a range of machine learning architectures, searching for an optimal model with which cognitive load may be classified. According to expectation, the deeper \acrlong{cnn}s came out on top, showing that fully connected networks are unsuited for multivariate \acrlong{tsc}. 
 
-Supervised learning was conducted on a high-quality multivariate dataset, manually recorded in a setting and on a task that could isolate cognitive load as a ground truth. By visualizing this data by the levels and states of the task, one could comfortably observe pupillary and gaze responses to cognitive load that matches that of the literature. \acrshort{ebr}, however, behaved somewhat contrary to expectations, hinting at limitations faced by the task implementation. Despite this, the surprising consistency of blink events surrounding task state transitions still justifies its inclusion in the dataset. All data channels positively contributed to the classification accuracies observed by the various models explored.
+Supervised learning was conducted on a high-quality multivariate dataset, manually recorded in a setting and on a task that could isolate cognitive load as a ground truth. By visualizing this data by its internal levels and states, one could comfortably observe pupillary and gaze responses to cognitive load that matches the literature. \acrshort{ebr}, however, behaved somewhat contrary to expectations, hinting at limitations faced by the task implementation. Despite this, the surprising consistency of blink events surrounding task state transitions still justifies its inclusion in the dataset. All data channels positively contributed to the classification accuracies observed by the various models explored.
 
 The best models showed accuracies up to 71\% when classifying four states of cognitive load and 61\% when classifying three levels. Accuracies improved by about 20 percentage points in both cases when the problem was reduced to binary two-class distinction. Nonetheless, they lack generalization since they have only been trained on limited intra-subject and intra-task datasets. As discussed in section \ref{sec:bt/previous_work}, such a deficiency completely devalues the model in a production setting, as ocular responses to cognitive load are both very subjective and task-dependant. 
 % However, as a proof of concept, this performance is beyond expectation. 
@@ -21,13 +21,14 @@ For Osirion, this work will lay the foundation for further research into cogniti
 
 \section{Future Work}
 
-Future work should emphasize improvements in the dataset. Generalizability should be addressed by introducing a larger participant group and task selection. 
-A model trained on such data would be transferable to unseen subjects and tasks. Additionally, the dataset could be significantly improved by redesigning the recording environment, taking care of the weaknesses discussed in sections \ref{sec:disc/ocular_correlations/ebr} and \ref{sec:disc/classification/cm}. For instance, modifying the task such that all states have equal length would allow for the pupillary and blink rate responses to fully settle between trials and address the problem of imbalanced classes.
+Future work should emphasize improvements in the dataset. 
+Generalizability sho\-uld be addressed by introducing a larger participant group and task selection. A model trained on such data would be transferable to unseen subjects and tasks. Additionally, the dataset could be significantly improved by redesigning the recording environment, taking care of the weaknesses discussed in sections \ref{sec:disc/ocular_correlations/ebr} and \ref{sec:disc/classification/cm}. For instance, modifying the task such that all states have equal length would allow for the pupillary and blink rate responses to fully settle between trials and address the problem of imbalanced classes.
 
-The dataset may also be favorably expanded with more modes of data. Smartwatches, for instance, offer many physiological data sources, which have so far remained unexplored in this thesis. Heart rate, blood oxygen levels, respiratory rate, and skin conductance are not uncommon in modern models. Although perhaps not as prominent as pupillometry and \acrshort{ebr}, there is much research on the correlation of such data with cognition 
-\cite{paas1994A, solhjoo2019, setz2010, ikehara2005, choi2014}.
+The dataset may also be favorably expanded with more modes of data. Smartwatches, for instance, offer many physiological data sources, which have so far remained unexplored in this thesis. Heart rate, blood oxygen levels, respiratory rate, and skin conductance are not uncommon in modern models. Although perhaps not as prominent as pupillometry and \acrshort{ebr}, there is much research on the correlation of such data with cognition \cite{paas1994A, solhjoo2019, setz2010, ikehara2005, choi2014}.
 % Although their correlation with cognition is yet to be explored by the author, there is much literature to be found on the topic \cite{paas1994A, solhjoo2019, setz2010, ikehara2005, choi2014}.
-
+\acrshort{ebr}
+\acrlong{ebr}
+\acrfull{ebr}
 
 
 

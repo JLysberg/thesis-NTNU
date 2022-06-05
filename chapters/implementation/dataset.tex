@@ -16,7 +16,7 @@ The first step of the data cleaning process was to remove all samples recorded b
 
 \subsubsection{Blink Extrapolation}
 
-Blinks were detected by applying algorithm \ref{alg:impl/blink_extrapolation}. Its parameters were tuned by trial and error while observing the dataset's internal characteristics. Lines 2-6 looks for long-duration "EyesNotFound" eye movements and stores their indices in memory. Then, lines 8-21 further extend these blink intervals if short-duration "Unclassified" eye movements come within ten consecutive samples. In the end, lines 23-27 remove blinks from the raw input data and create a new blink rate channel.
+Blinks were detected by applying algorithm \ref{alg:impl/blink_extrapolation}. Its parameters were tuned by trial and error while observing the dataset's internal characteristics. Lines 2-6 looks for long-duration "EyesNotFound" eye movements and stores their indices in memory. Then, lines 8-21 further extend these blink intervals if short-duration "Unclassified" eye movements come within ten samples following the blink event. Finally, lines 23-27 remove blink-contaminated samples from the raw input data and create a new channel with \acrshort{ebr} data.
 
 \begin{algorithm}
     \caption{Blink extrapolation algorithm. EMT and GED is short for "Eye Movement Types" and "Gaze Event Durations", and represent two channels from the raw data with the same name. Note that the iterative representation of this algoritm is just for ease of understanding. In practice, it was implemented with efficient inplace data processing libraries.}
@@ -66,18 +66,20 @@ After pre-processing, the data could finally be used for dataset creation. To th
 
 \subsubsection{Levels}
 
-The first two datasets were labeled by the predefined difficulty levels of the N-Back task, as described in section \ref{sec:impl/tasks}. By the assumptions made in section \ref{sec:impl/data_acq}, the labels of this dataset are intended to capture levels of cognitive load imposed on the subject. Since each difficulty occurs the same number of times throughout the data, the labeling scheme ensures a fully balanced dataset. Furthermore, greater correlations may artificially be induced if the dataset is split into only levels 0 and 2. Throughout the following discussions, these datasets will be referred to as \acrfull{fl} and \acrfull{bl}.
+The first two datasets were labeled by the predefined difficulty levels of the N-Back task, as described in section \ref{sec:impl/tasks}. By the assumptions made in section \ref{sec:impl/data_acq}, the labels of this dataset are intended to capture the levels of cognitive load imposed on the subject. Since each difficulty occurs the same number of times throughout the data, the labeling scheme ensures a fully balanced dataset. Furthermore, greater correlations may artificially be induced if the dataset is split into only levels 0 and 2. Throughout the following discussions, these datasets will be referred to as \acrfull{fl} and \acrfull{bl}.
 
 \subsubsection{States}
 
-In addition to the level datasets, we will employ a labeling scheme that distinguishes between the transient states of the N-back task during execution. As was briefly mentioned in section \ref{sec:impl/tasks}, figure \ref{fig:impl/NBackBlockSeg} has labeled each N-Back block segment with "idle", "onset", "execution", and "offset". 
+In addition to the level datasets, another labeling scheme was employed. This scheme was intended to distinguish between the N-back task's transient states during execution. 
+% that distinguishes between the transient states of the N-back task during execution was employed.
+As was briefly mentioned in section \ref{sec:impl/tasks}, figure \ref{fig:impl/NBackBlockSeg} has labeled each N-Back block segment with "idle", "onset", "execution", and "offset". 
 % These are intended to capture correlations that appear in the data from phasic task-evoked responses. 
-As discussed in section \ref{sec:bt/cognitive_impacts}, some cognitive states may be detected by task-evoked pupillary and \acrshort{ebr} responses. This labeling scheme is intended to capture these correlations. Again, we add another dataset with fewer labels to induce larger correlations, with only the "idle" and "execution" states. We call these datasets \acrfull{fs} and \acrfull{bs}.
+As discussed in section \ref{sec:bt/cognitive_impacts}, some cognitive states may be detected by task-evoked pupillary and \acrshort{ebr} responses. This labeling scheme captured these correlations. Again, another dataset with fewer labels was added to induce larger correlations, with only the "idle" and "execution" states. We call these datasets \acrfull{fs} and \acrfull{bs}.
 % We hope to capture these correlations by introducing this labeling scheme. 
 
 \subsection{Segmentation, Subsampling, and Augmentation}
 
-Finally, the processed and labeled datasets are molded for Pytorch's tensor-based deep learning framework by arranging samples in fixed-length segments. Since data was recorded at frequencies beyond what was needed, these segments could be created by subsampling every fourth sample of the original data. This way, the dataset could essentially be augmented from one hour of 1200Hz data to four hours of 300Hz data. Segments were chosen to be 256 samples in length, which could represent about 50s in real-time. Each sample was then assigned a \textit{segment ID}. The target labels for each segment are added to a separate dataset.
+Finally, the processed and labeled datasets were molded for Pytorch's tensor-based deep learning framework by arranging samples in fixed-length segments. Since data was recorded at frequencies beyond what was needed, these segments could be created by subsampling every fourth sample of the original data. This way, the dataset could essentially be augmented from one hour of 1200Hz data to four hours of 300Hz data. Segments were chosen to be 256 samples in length, which could represent about 50s in real-time. Each sample was then assigned a \textit{segment ID}. The target labels for each segment were added to a separate dataset.
 
 The final dataset includes four data channels, as shown in figure \ref{tab:impl/dataset/processed}. They are pupil diameter, blink rate (\acrshort{ebr}), and on-screen gaze in the X- and Y- dimensions. A fifth channel indicates which segment each sample belongs to, which determines its target label for classification. 
 % The data channel dataset is shown on the left in table \ref{tab:impl/dataset/processed}, and target labels are on the right.
