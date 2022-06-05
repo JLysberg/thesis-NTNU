@@ -1,8 +1,9 @@
+\newpage
 \section{Confusion Matrices} \label{sec:res/confusion}
 
-The following subsections will present a visualization of the predictions made by the two best models for every label group in table \ref{tab:res/performance}. Visualizations are plotted from the confusion matrices from which the classification accuracies were calculated. Therefore, the following visualizations will display one row and one column for every class in a label group. Each input sequence is passed through the model and added to one cell, whose row and column correspond to its correct and predicted class. The counts in every cell are finally normalized for every row. The resulting values in each cell can therefore be interpreted as the "probability that the model will predict [column class] given [row class] input." A perfect classification model will only have one's along the diagonal. Off-diagonal values represent misclassifications.
+The following subsections will present a visualization of the predictions made by the two best models for every label group in table \ref{tab:res/performance}. Visualizations are plotted from the confusion matrices from which the classification accuracies were calculated. Therefore, the following visualizations will display one row and one column for every class in a label group. Each input sequence is passed through the model and added to one cell, whose row and column correspond to its correct and predicted class. The counts in every cell are finally normalized for every row. The resulting values in each cell can therefore be interpreted as the "probability that the model will predict [column class] given [row class] input," a metric more commonly known as \textit{recall}. A perfect classification model will only have one's along the diagonal. Off-diagonal values represent misclassifications.
 
-\newpage
+% \newpage
 \subsection{State Label Groups}
 
 % \begin{figure}[h]
@@ -58,7 +59,7 @@ The following subsections will present a visualization of the predictions made b
 % \end{figure}
 % \FloatBarrier
 
-% \newpage
+\newpage
 \subsection{Level Label Groups}
 
 \begin{figure}[h]
@@ -74,7 +75,7 @@ The following subsections will present a visualization of the predictions made b
         \caption{\acrshort{bl} dataset classified by \acrlong{resnet18}}
         \label{fig:res/conf_blevel}
     \end{subfigure}
-    \caption{Confusion matrices for the level label groups detailed in section \ref{sec:impl/dataset}. Cell values and color gradients indicate proportion of input segments classified as [column], with true class [row].}
+    \caption{Confusion matrices for the level label groups detailed in section \ref{sec:impl/dataset}. Cell values and color gradients indicate proportion of input segments are similar to figure \ref{fig:res/conf_state}.}
     \label{fig:res/conf_level}
 \end{figure}
 \FloatBarrier

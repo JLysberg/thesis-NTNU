@@ -1,16 +1,28 @@
-\section{Research Goals} \label{sec:intro/research_goals}
+\section{Research Goals and Objectives} \label{sec:intro/research_goals}
 
-While the end goal for Osirion is to provide a platform that facilitates performance and health, this thesis is merely a means toward this end. To reliably produce feedback causally linked with divergence in performance, we need a systematic understanding of all aspects that may ultimately affect gameplay. Such aspects are inevitably both environmental and subject to circumstance. However, as the above section suggests, the significance of the cognitive load aspect should not be underestimated. Since emerging technologies allow for increasingly unobtrusive and commercially available eye-tracking, bridging the gap between such data and cognitive load classification may prove a significant value for performance analytics.
+While the end goal for Osirion is to provide a platform that facilitates performance and health in gaming, this thesis is merely a means toward that end. To reliably produce feedback causally linked with skill, we need a systematic understanding of all aspects that may ultimately affect gameplay. Such aspects are inevitably both environmental and subject to circumstance. However, as the above section suggests, the significance of the cognitive load aspect should not be underestimated. Since emerging technologies allow for increasingly unobtrusive and commercially available eye-tracking, bridging the gap between such data and cognitive load classification may prove a significant value for performance analytics. These grounds raise the following research goals:
 
-These grounds raise the primary research goal for this thesis. It is to \textit{design and train a machine learning model to classify cognitive load aspects from patterns in eye-tracking data}. In this regard, any model that can perform reliable classification with accuracies beyond chance will be considered a success. An exploration of model architectures will be provided and compared to reasonably exclude any doubt of individual weaknesses in model properties.
-% Several model architectures will be researched and compared. 
-%Both fully end-to-end deep learning architectures and simpler models with elements of feature engineering, as well as a combination of the two. %Results will likely bring Osirion AS one step closer to per
+\begin{itemize}
+    \item Give a comprehensive literature review of cognitive load theory and subsequent correlations with ocular events
+    \item Design and train a machine learning model to classify cognitive load from features in eye-tracking data
+\end{itemize}
 
-Finally, to further substantiate results from the first goal, a secondary objective will take a theoretical approach to the same problem. By consulting literature in neuroscience and cognitive psychology, the author will \textit{give a comprehensive presentation of cognitive load theory and subsequent correlations with ocular events}. Doing so will provide the tools with which a compelling conclusion may be made. It will also allow for more justified considerations in the design of model architecture, dataset, and data recording environments.
+Any model that can perform reliable classification with accuracies beyond chance will be considered a success. An exploration of model architectures will be provided and compared to reasonably exclude any doubt of individual weaknesses in model properties. The author has no access to pre-made datasets on which these models may be trained. Therefore, a part of this project will regard the considerations and manual development of such a dataset.
 
-% choice of model architecture during design, and considerations wh
-% crucial features to include in the dataset, as well as allowing for more informed decisions when considering how data should be collected.
+\newpage
+The first goal is included to substantiate any results given by the second goal by taking a theoretical approach to the same problem. The author will consult the literature to provide the tools with which a compelling conclusion may be made. It will also allow for more justified considerations in model architecture, dataset, and data recording environments.
 
-% merely a step on the way towards providing such feedback. 
+There are many steps along the way towards these goals. A rough indication of the objectives along the way is detailed below.
+% Since the basis from which these goals may be achieved is 
+% These goals will be achieved by following the research objectives below. 
+% To achieve these goals, the following research objectives gives a 
 
-% For this purpose, we need abundant insight into all aspects which may ultimately affect gameplay. This includes the physical setting; light intensity and temperature, posture and distance from screen. It includes prior history and trends of improvement. The holy grail, however, is likely linked to subjective perception.
+\begin{enumerate}
+    \item Consult literature in neuroscience and cognitive psychology to fundamentally understand cognitive load and its implications.
+    \item Make an informed decision on the creation of a training dataset. That includes answering the following. How can cognitive load be induced in the subject and labeled? Which data channels should be included? What considerations need to be taken with regards to the recording environment? 
+    \item Design an experimental setup and record eye movement data.
+    \item Process raw data and create a training dataset.
+    \item Consult literature in data science and recent advances in \acrfull{tsc} and choose a set of model architectures to implement.
+    \item Implement and train model architectures.
+    \item Consider classification results and their implications and value for future work in automated performance analytics for gaming.
+\end{enumerate}

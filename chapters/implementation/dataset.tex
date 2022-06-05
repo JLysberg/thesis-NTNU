@@ -1,4 +1,4 @@
-\section{Dataset} \label{sec:impl/dataset}
+\section{Dataset Creation} \label{sec:impl/dataset}
 
 Raw data from the eye tracker was output in 16 channels. 
 % Since the sampling rate was constant at 1200Hz, some samples were missing due to eye occlusion. Technical defects also caused single data points to be lost at regular intervals. 
@@ -8,11 +8,12 @@ When data from one source was unavailable due to pupil occlusion or technical is
 
 \subsection{Pre-Processing}
 
-Raw data was not immediately suitable as a training dataset. Since many channels contained a high rate of missing values, these had to either be interpolated or dropped. Then, blinks events and \acrshort{ebr} could be extrapolated and added as a new channel.
+Raw data was not immediately suitable as a training dataset. Since many channels contained a high rate of missing values, these had to either be interpolated or dropped. Then, blink events and \acrshort{ebr} could be extrapolated and added as a new channel.
 
+\newpage
 \subsubsection{Data cleaning}
 
-The first step of the data cleaning process was to remove all samples recorded before the session began. These samples were easily distinguished by their lack of a "Presented Stimulus name." Then, a new data channel was filled with the average pupil diameter between the left and right eye. Finally, insignificant one- and two-sample data losses were interpolated with the last valid data point.
+The first step of the data cleaning process was to remove all samples recorded before the session began. These samples were easily distinguished by their lack of a "Presented Stimulus name." Then, insignificant one- and two-sample data losses were interpolated with the last valid data point. Finally, a new data channel was added and filled with the average pupil diameter between the left and right eye. 
 
 \subsubsection{Blink Extrapolation}
 
@@ -62,7 +63,7 @@ A low-pass filter was applied to all data channels after the blink rate channel 
 \subsection{Labeling} \label{sec:impl/dataset/labeling}
 
 % After pre-processing, a final step was needed to create a fully-fledged dataset fit for training. 
-After pre-processing, the data could finally be used for dataset creation. To that end, the author chose four sets of labels, each generating one dataset intended to capture one inherent correlation within the data.
+After pre-processing, the data could finally be used to create a training dataset. To that end, the author chose four sets of labels, each generating one dataset intended to capture one inherent correlation within the data.
 
 \subsubsection{Levels}
 
@@ -72,16 +73,16 @@ The first two datasets were labeled by the predefined difficulty levels of the N
 
 In addition to the level datasets, another labeling scheme was employed. This scheme was intended to distinguish between the N-back task's transient states during execution. 
 % that distinguishes between the transient states of the N-back task during execution was employed.
-As was briefly mentioned in section \ref{sec:impl/tasks}, figure \ref{fig:impl/NBackBlockSeg} has labeled each N-Back block segment with "idle", "onset", "execution", and "offset". 
+As was briefly mentioned in section \ref{sec:impl/tasks/details}, figure \ref{fig:impl/NBackBlockSeg} has labeled each N-Back block segment with "idle", "onset", "execution", and "offset". 
 % These are intended to capture correlations that appear in the data from phasic task-evoked responses. 
 As discussed in section \ref{sec:bt/cognitive_impacts}, some cognitive states may be detected by task-evoked pupillary and \acrshort{ebr} responses. This labeling scheme captured these correlations. Again, another dataset with fewer labels was added to induce larger correlations, with only the "idle" and "execution" states. We call these datasets \acrfull{fs} and \acrfull{bs}.
 % We hope to capture these correlations by introducing this labeling scheme. 
 
 \subsection{Segmentation, Subsampling, and Augmentation}
 
-Finally, the processed and labeled datasets were molded for Pytorch's tensor-based deep learning framework by arranging samples in fixed-length segments. Since data was recorded at frequencies beyond what was needed, these segments could be created by subsampling every fourth sample of the original data. This way, the dataset could essentially be augmented from one hour of 1200Hz data to four hours of 300Hz data. Segments were chosen to be 256 samples in length, which could represent about 50s in real-time. Each sample was then assigned a \textit{segment ID}. The target labels for each segment were added to a separate dataset.
+Finally, the processed and labeled datasets were molded for Pytorch's tensor-based deep learning framework by arranging samples in fixed-length segments. Since data was recorded at frequencies beyond what was needed, these segments could be created by subsampling every fourth sample of the original data. This way, the dataset could be augmented from one hour of 1200Hz data to four hours of 300Hz data. Segments were chosen to be 256 samples in length, which could represent about 50s in real-time. Each sample was then assigned a \textit{segment ID}. The target labels for each segment were added to a separate dataset.
 
-The final dataset includes four data channels, as shown in figure \ref{tab:impl/dataset/processed}. They are pupil diameter, blink rate (\acrshort{ebr}), and on-screen gaze in the X- and Y- dimensions. A fifth channel indicates which segment each sample belongs to, which determines its target label for classification. 
+The final dataset includes four data channels, as shown in table \ref{tab:impl/dataset/processed}. They are pupil diameter, blink rate (\acrshort{ebr}), and on-screen gaze in the X- and Y- dimensions. A fifth channel indicates which segment each sample belongs to, which determines its target label for classification. 
 % The data channel dataset is shown on the left in table \ref{tab:impl/dataset/processed}, and target labels are on the right.
 
 \import{.}{datatable_processed}

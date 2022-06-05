@@ -59,27 +59,27 @@ To understand \acrshort{cnn}s, we need to understand what a \textit{convolution}
 
 \begin{equation}
     \label{eq:bt/dnn/conv1}
-    s(t)=(x*w)(t)
+    s(t)=(x*k)(t)
 \end{equation}
 
 \begin{equation}
     \label{eq:bt/dnn/conv2}
-    s(t)=\sum_{a=-\infty}^{\infty}x(a)w(t-a)
+    s(t)=\sum_{a=-\infty}^{\infty}x(a)k(t-a)
 \end{equation}
 
-With \acrshort{cnn} terminology, $x$ is the input to a convolutional layer and $w$ is its \textit{kernel}. Since the input to a \acrshort{cnn} is often an image, time series, or other signal, $x$ and $w$ are usually multidimensional. Taking image classification as an example, the convolutional operations performed on all input pixels would look like equation \ref{eq:bt/dnn/conv3}.
+With \acrshort{cnn} terminology, $x$ is the input to a convolutional layer and $k$ is its \textit{kernel}. Since the input to a \acrshort{cnn} is often an image, time series, or other signals, $x$ and $k$ are usually multidimensional. Taking image classification as an example, the convolutional operations performed on all input pixels would look like equation \ref{eq:bt/dnn/conv3}.
 
 \begin{equation}
     \label{eq:bt/dnn/conv3}
     S(i,j)=(K*X)(i,j)=\sum_{m}^{}\sum_{n}^{}X(i-m,j-n)K(m,n)
 \end{equation}
 
-Each pixel is denoted by $i$ and $j$ for its spatial coordinate in the input image. The output from convolving a kernel $K$ with an image $X$ is called a \textit{feature map} because it is essentially a new "image" where features represented by the kernel are highlighted. A visual representation of how a 2-dimensional convolutional operation may be applied to an input is displayed in figure \ref{fig:bt_conv}.
+Each pixel is denoted by $i$ and $j$ for its spatial coordinate in the input image. The output from convolving a kernel $K$ with an image $X$ is called a \textit{feature map} because it is essentially a mapping to a new "image" where features represented by the kernel are highlighted. A visual representation of how a 2-dimensional convolutional operation may be applied to an input is displayed in figure \ref{fig:bt_conv}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/bt_conv.png}
-    \caption{Example of 2-dimensional convolution operation. If this were image classification, values in the input matrix would represent individual pixel activations in the image. The final value of each output cell is calculated by the convolution of equation \ref{eq:bt/dnn/conv3}.}
+    \caption{Example of 2-dimensional convolution operation. If this were image classification, values in the input matrix would represent individual pixel activations in the image. The final value of each output cell is calculated by the convolution operation given by equation \ref{eq:bt/dnn/conv3}.}
     \source{\cite{goodfellow2016}}
     \label{fig:bt_conv}
 \end{figure}

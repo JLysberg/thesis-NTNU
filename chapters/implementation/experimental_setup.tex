@@ -19,4 +19,13 @@ The hardware used to record eye-tracking data was a Tobii Pro Spectrum, in a set
     \label{fig:impl_hardware_setup}
 \end{figure}
 
-The eye-tracker itself was mounted directly beneath the screen. It uses the pupil- and corneal reflection method detailed in section \ref{sec:bt/ET_tech} to capture data in a non-intrusive manner. Its remote capabilities allow for free head movement within a 34cm x 26cm (width x height) track box, at 60cm to 80cm from the stimulus screen. Two cameras that capture stereo images of both eyes combined with nine illuminators provide accurate estimations of on-screen gaze, 3D head position, and pupil diameter. All this data is streamed at up to 1200 samples per second, allowing for the capture of high-fidelity eye movements, tiny deviations in pupil diameter, and high-frequency oscillatory eye movements such as microsaccades. 
+The eye-tracker itself was mounted directly beneath the screen. It uses the pupil- and corneal reflection method detailed in section \ref{sec:bt/ET_tech} to capture data in a non-intrusive manner. Its remote capabilities allow for free head movement within a 34cm x 26cm (width x height) track box, at 60cm to 80cm from the stimulus screen. Two cameras that capture stereo images of both eyes combined with nine infrared illuminators provide accurate estimations of on-screen gaze, 3D head position, and pupil diameter. All this data is streamed at up to 1200 samples per second, allowing for the capture of high-fidelity eye movements, tiny deviations in pupil diameter, and high-frequency oscillatory eye movements such as microsaccades. 
+
+On-screen coordinates as output from the eye-tracker are depicted in figure \ref{fig:impl_output}. They are given in floating-point values from (0.0, 0.0) in the top-left corner to (1.0, 1.0) in the bottom-right corner. Upon installation, between subjects and otherwise, as often as possible, a calibration is required to get accurate gaze estimations.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/impl_output.png}
+    \caption{Schematic representation of the coordinate system in which on-screen gaze data is presented by the Tobii Pro Spectrum.}
+    \label{fig:impl_output}
+\end{figure}

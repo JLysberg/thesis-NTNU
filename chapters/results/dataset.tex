@@ -1,4 +1,4 @@
-\section{Dataset} \label{sec:res_dataset}
+\section{Dataset Visualization} \label{sec:res_dataset}
 
 \subsection{Label groups}
 
@@ -9,25 +9,25 @@ As is evident from their titles, each row of plots represents one difficulty lev
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{figures/impl_statelevelvisualization_pbr.png}
-    \caption{Visualization of state and level labels of the processed dataset. The green and blue graphs represent the pupillary diameter and blink rate data channels, respectively. The blue histogram represents individual blink occurrences during 50ms intervals throughout the trial. Vertical lines indicate task state transitions.}
+    \caption{Visualization of state and level labels of the processed dataset. The green and blue graphs represent the pupillary diameter and blink rate data channels, respectively. The blue histogram represents individual blink occurrences during 50ms intervals throughout the trial. Black vertical lines indicate task state transitions.}
     \label{fig:res/statelevel_pbr}
 \end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{figures/impl_statelevelvisualization_xy.png}
-    \caption{Visualization of state and level labels of the processed dataset. The magenta and red graphs represent the on-screen x- and y-coordinate data channels, respectively. The blue histogram represent individual blink occurrences during 50ms intervals throughout the trial. Vertical lines indicate task state transitions.}
+    \caption{Visualization of state and level labels of the processed dataset. The magenta and red graphs represent the on-screen x- and y-coordinate data channels, respectively. The blue histogram and black vertical lines are similar to figure \ref{fig:res/statelevel_pbr}.}
     \label{fig:res/statelevel_xy}
 \end{figure}
 
 \subsection{Task Exposure}
 
-Figure \ref{fig:res/taskexposure} was generated similarly to figures \ref{fig:res/statelevel_pbr} and \ref{fig:res/statelevel_xy}. However, this figure demonstrates how continuous task exposure affects the data. Plot rows each represent one data channel, as is evident from their titles. In each plot, graphs are colored by which time during task exposure they were recorded. For instance, the green graph comes exclusively from the first quarter of the recording session (first 15 minutes). The blue comes from the second quarter (15-30 minutes), and so on. Additionally, for the bottom two plots, a gray horizontal line represent the center on-screen coordinates at $X = 0.5$ and $Y = 0.5$. These plots are also labeled with vertical lines representing task states, similar to the above figures.
+Figure \ref{fig:res/taskexposure} was generated similarly to figures \ref{fig:res/statelevel_pbr} and \ref{fig:res/statelevel_xy}. However, this figure demonstrates how continuous task exposure affects the data. Plot rows each represent one data channel, as is evident from their titles. In each plot, graphs are colored by which time during task exposure they were recorded. For instance, the green graph comes exclusively from the first quarter of the recording session (first 15 minutes). The blue comes from the second quarter (15-30 minutes), and so on. These plots are also indicated with vertical lines representing task states, similar to the above figures.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{figures/impl_taskexposurevisualization.png}
-    \caption{Visualization of task exposure effect in dataset. Graphs are color-coded by which quarter of task exposure they were recorded. Grey graphs indicate center on-screen coordinates. Vertical lines indicate task state transitions.}
+    \caption{Visualization of task exposure effect in dataset. Graphs are color-coded by which quarter of task exposure they were recorded. The black vertical lines are similar to figure \ref{fig:res/statelevel_pbr}}
     \label{fig:res/taskexposure}
 \end{figure}
 \FloatBarrier
